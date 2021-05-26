@@ -11,19 +11,21 @@
       @foreach($posts as $post)
         <div class="col-md-3">
           <div class="card">
-            <div class="card-header">{{ $post->title }}</div>
+            <a href="{{route('admin.posts.show', ['post' => $post->slug])}}">
+              <div class="card-header">{{ $post->title }}</div>
 
-              <div class="card-body">
-                {{ $post->content }}
-                <div class="">
-                  <a href="{{ route('admin.posts.edit', ['post' => $post->id])}}">Modifica</a>
-                  <form class="form-delete" action="{{ route('admin.posts.destroy', ['post' => $post->id])}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" name="" value="Cancella">
-                  </form>
+                <div class="card-body">
+                  {{ $post->content }}
+                  <div class="">
+                    <a href="{{ route('admin.posts.edit', ['post' => $post->id])}}">Modifica</a>
+                    <form class="form-delete" action="{{ route('admin.posts.destroy', ['post' => $post->id])}}" method="post">
+                      @csrf
+                      @method('DELETE')
+                      <input type="submit" name="" value="Cancella">
+                    </form>
+                  </div>
                 </div>
-              </div>
+            </a>
           </div>
         </div>
       @endforeach
