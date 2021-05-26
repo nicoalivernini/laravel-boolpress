@@ -13,7 +13,12 @@
           <div class="card">
             <div class="card-header">{{ $post->title }}</div>
 
-              <div class="card-body">{{ $post->content }}</div>
+              <div class="card-body">
+                {{ $post->content }}
+                <div class="">
+                  <a href="{{ route('admin.posts.edit', ['post' => $post->id])}}">Modifica</a>
+                </div>
+              </div>
           </div>
         </div>
       @endforeach
