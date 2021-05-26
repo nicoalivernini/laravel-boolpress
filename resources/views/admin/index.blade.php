@@ -19,5 +19,9 @@
             </div>
         </div>
     </div>
+    <div class="links">
+        <a href="{{route('admin.posts.index')}}">Entra e vedi tutti gli articoli</a>
+
+    </div>
 </div>
 @endsection
