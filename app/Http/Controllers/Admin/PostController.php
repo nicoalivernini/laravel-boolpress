@@ -96,10 +96,7 @@ class PostController extends Controller
 
       $data = $request->all();
 
-      if ($post->title != $data['title']) {
-        $data['slug'] = $this->generateSlug($data['title']);
-
-      }
+      $data['slug'] = $this->generateSlug($data['title'], $post->title != $data['title']);
 
       $post->update($data);
 
@@ -114,11 +111,19 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+      $post->delete();
+
+      return redirect()->route('admin.posts.index');
     }
 
-    private function generateSlug(string $title) {
+    private function generateSlug(string $title, bool $change = true) {
+
       $slug = Str::slug($title, '-');
+
+      if (!$change) {
+        return $slug;
+      }
+
       $slug_base = $slug;
       $contatore = 1;
 
