@@ -16,6 +16,8 @@
           {{ __('Bentornato') }}
           <div class="links">
             <a href="{{route('admin.posts.index')}}"><button>Entra e vedi tutti gli articoli</button></a>
+            <a href="{{route('admin.categories.index')}}"><button>Vedi le categorie</button></a>
+
           </div>
         </div>
       </div>
