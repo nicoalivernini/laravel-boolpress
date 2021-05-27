@@ -99,7 +99,7 @@ class PostController extends Controller
 
       $data = $request->all();
 
-      $data['slug'] = $this->generateSlug($data['title'], $post->title != $data['title']);
+      $data['slug'] = $this->generateSlug($data['title'], $post->title != $data['title'], $post->slug);
 
       $post->update($data);
 
@@ -119,14 +119,13 @@ class PostController extends Controller
       return redirect()->route('admin.posts.index');
     }
 
-    private function generateSlug(string $title, bool $change = true) {
-
-      $slug = Str::slug($title, '-');
+    private function generateSlug(string $title, bool $change = true, string $old_slug ='') {
 
       if (!$change) {
-        return $slug;
+        return $old_slug;
       }
 
+      $slug = Str::slug($title, '-');
       $slug_base = $slug;
       $contatore = 1;
 
@@ -135,7 +134,7 @@ class PostController extends Controller
          $slug = $slug_base . '-' . $contatore;
          $contatore++;
 
-         $post_with_slug = Post::where('slug', '-' ,$slug)->first();
+         $post_with_slug = Post::where('slug', '=' ,$slug)->first();
        }
        return $slug;
     }
