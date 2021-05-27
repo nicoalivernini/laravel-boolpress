@@ -11,6 +11,9 @@
     <div class="col-md-12">
       <h4>{{ $post->content }}</h4>
     </div>
+    <div class="col-md-12">
+      <h6>Category: {{ $post->category->name }}</h6>
+    </div>
   </div>
   <a href="{{route('admin.posts.index')}}">Torna Indietro</a>
 </div>
