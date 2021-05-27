@@ -12,7 +12,7 @@
       <h4>{{ $post->content }}</h4>
     </div>
   </div>
-  <a href="{{route('admin.posts.index')}}">Torna Indietro</a>
+  <a href="{{route('posts.index')}}">Torna Indietro</a>
 </div>
 
 @endsection

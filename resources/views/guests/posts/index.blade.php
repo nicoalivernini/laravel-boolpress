@@ -8,6 +8,7 @@
       <div class="card">
           <div class="card-header">{{ $post->title }}</div>
           <div class="card-body">{{ $post->content }}</div>
+          <a href="{{ route('posts.show', ['slug' => $post->slug])}}"><button>Leggi di più</button></a>
       </div>
     </div>
   @endforeach
