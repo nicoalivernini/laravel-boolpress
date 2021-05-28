@@ -18,6 +18,9 @@
         @endif
       </h6>
     </div>
+    <div class="col-md-12">
+      <img src="{{asset('storage/'.$post->cover)}}" alt="{{$post->title}}">
+    </div>
   </div>
   <a href="{{route('admin.posts.index')}}">Torna Indietro</a>
 </div>

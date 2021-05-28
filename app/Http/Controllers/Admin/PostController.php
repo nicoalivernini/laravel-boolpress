@@ -7,6 +7,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -46,16 +47,23 @@ class PostController extends Controller
       $request->validate([
         'category_id' => 'exists:categories,id|nullable',
         'title' => 'required|string|max:255',
-        'content' => 'required|string'
+        'content' => 'required|string',
+        'cover' => 'image|max:100|nullable'
       ]);
 
       $data = $request->all();
 
+      $cover = NULL;
+      if (array_key_exists('cover', $data)) {
+        $cover = Storage::put('uploads', $data['cover']);
+      }
+
       $post = new Post();
       $post->fill($data);
 
-       $post->slug = $this->generateSlug($post->title);
-       $post->save();
+      $post->slug = $this->generateSlug($post->title);
+      $post->cover = $cover;
+      $post->save();
 
 
       return redirect()->route('admin.posts.index');
@@ -101,12 +109,17 @@ class PostController extends Controller
       $request->validate([
         'category_id' => 'exists:categories,id|nullable',
         'title' => 'required|string|max:255',
-        'content' => 'required|string'
+        'content' => 'required|string',
+        'cover' => 'image|max:60|nullable'
       ]);
 
       $data = $request->all();
 
       $data['slug'] = $this->generateSlug($data['title'], $post->title != $data['title'], $post->slug);
+      if (array_key_exists('cover', $data)) {
+        $cover = Storage::put('uploads', $data['cover']);
+        $data['cover'] = $cover;
+      }
 
       $post->update($data);
 
