@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -65,6 +66,7 @@ class PostController extends Controller
       $post->cover = $cover;
       $post->save();
 
+      Mail::to('mail@mail.it')->send(new SendNewMail());
 
       return redirect()->route('admin.posts.index');
 
