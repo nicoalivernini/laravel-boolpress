@@ -17,8 +17,11 @@
         <a href="{{route('category.index', ['slug' => $post->category->slug])}}"> {{ $post->category->name }}</a></h6>
         @endif
     </div>
+    <div class="col-md-12">
+      <img src="{{asset('storage/'.$post->cover)}}" alt="{{$post->title}}">
+    </div>
   </div>
-  <a href="{{route('posts.index')}}">Torna Indietro</a>
+  <a href="{{route('posts.index')}}"><button class="btn btn-primary">Torna Indietro</button></a>
 </div>
 
 @endsection

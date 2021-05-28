@@ -22,7 +22,7 @@
       <img src="{{asset('storage/'.$post->cover)}}" alt="{{$post->title}}">
     </div>
   </div>
-  <a href="{{route('admin.posts.index')}}">Torna Indietro</a>
+  <a href="{{route('admin.posts.index')}}"><button class="btn btn-primary">Torna indietro</button></a>
 </div>
 
 @endsection

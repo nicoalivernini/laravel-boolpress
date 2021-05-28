@@ -9,7 +9,7 @@
             <div class="card-header"><h3>{{ $category->name }}</h3></div>
             <div class="card-body">
               <div class="">
-                <a href="{{ route('admin.categories.edit', ['category' => $category->id])}}"><button>Modifica</button></a>
+                <a href="{{ route('admin.categories.edit', ['category' => $category->id])}}"><button class="btn btn-primary">Modifica</button></a>
                 <form class="form-delete" action="{{ route('admin.categories.destroy', ['category' => $category->id])}}" method="POST">
                   @csrf
                   @method('DELETE')
@@ -23,7 +23,8 @@
     </div>
     <div class="row text-center pt-4">
       <div class="col-md-12">
-        <a href="{{route('admin.categories.create')}}"><button>Crea Categoria</button></a>
+        <a href="{{route('admin.categories.create')}}"><button class="btn btn-primary">Crea Categoria</button></a>
+        <a href="{{route('admin.index')}}"><button class="btn btn-primary">Torna indietro</button></a>
       </div>
     </div>
 </div>

@@ -78,7 +78,7 @@
         <div class="content">
           <div class="title m-b-md">Boolpress</div>
             <div class="links">
-              <a href="{{route('posts.index')}}"><button>Scopri gli articoli</button></a>
+              <a href="{{route('posts.index')}}"><button class="btn btn-primary">Scopri gli articoli</button></a>
             </div>
         </div>
       </div>

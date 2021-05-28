@@ -11,7 +11,7 @@
               <div class="card-body">
                 <p>{{ $post->content }}</p>
                 <div class="">
-                  <a href="{{ route('admin.posts.edit', ['post' => $post->id])}}"><button>Modifica</button></a>
+                  <a href="{{ route('admin.posts.edit', ['post' => $post->id])}}"><button class="btn btn-primary">Modifica</button></a>
                   <form class="form-delete" action="{{ route('admin.posts.destroy', ['post' => $post->id])}}" method="post">
                     @csrf
                     @method('DELETE')
@@ -26,7 +26,9 @@
     </div>
     <div class="row text-center pt-4">
       <div class="col-md-12">
-        <a href="{{route('admin.posts.create')}}"><button>Crea post</button></a>
+        <a href="{{route('admin.posts.create')}}"><button class="btn btn-primary">Crea post</button></a>
+        <a href="{{route('admin.index')}}"><button class="btn btn-primary">Torna indietro</button></a>
+
       </div>
     </div>
 </div>

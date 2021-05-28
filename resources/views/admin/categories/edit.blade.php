@@ -24,6 +24,7 @@
 
           <button class="btn btn-primary" type="submit">Salva</button>
         </form>
+        <a href="{{route('admin.categories.index')}}"><button class="btn btn-primary">Torna indietro</button></a>
       </div>
   </div>
 </div>
