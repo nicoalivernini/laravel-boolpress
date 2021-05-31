@@ -17,7 +17,7 @@
           <div class="links">
             <a href="{{route('admin.posts.index')}}"><button class="btn btn-primary">Entra e vedi tutti gli articoli</button></a>
             <a href="{{route('admin.categories.index')}}"><button class="btn btn-primary">Vedi le categorie</button></a>
-
+            <a href="{{route('admin.tags.index')}}"><button class="btn btn-primary">Vedi i tags</button></a>
           </div>
         </div>
       </div>
