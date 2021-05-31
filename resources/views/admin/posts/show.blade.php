@@ -18,6 +18,14 @@
         @endif
       </h6>
     </div>
+
+    <div class="col-md-12">
+      @foreach($post->tags as $tag)
+      <h6>Tag:
+      <a href="{{ route('tag.index', ['slug' => $tag->slug])}}">#{{$tag->name}}</a></h6>
+      @endforeach
+    </div>
+    
     <div class="col-md-12">
       <img src="{{asset('storage/'.$post->cover)}}" alt="{{$post->title}}">
     </div>
